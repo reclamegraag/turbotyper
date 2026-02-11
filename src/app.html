@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nl" data-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Leer blind typen met TurboTyper — adaptief, motiverend en gratis." />
+		<meta name="theme-color" content="#1a1a2e" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="TurboTyper" />
+
+		<meta property="og:title" content="TurboTyper" />
+		<meta property="og:description" content="Leer blind typen. Adaptief. Motiverend. Gratis." />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/og-image.svg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="TurboTyper" />
+		<meta name="twitter:description" content="Leer blind typen. Adaptief. Motiverend. Gratis." />
+		<meta name="twitter:image" content="/og-image.svg" />
+
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/icons/icon-192.svg" />
+		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
+		%sveltekit.head%
+	</head>
+	<body>
+		<div style="display: contents">%sveltekit.body%</div>
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/sw.js');
+			}
+		</script>
+	</body>
+</html>

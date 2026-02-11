@@ -1,0 +1,161 @@
+@import 'tailwindcss';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@theme {
+	--font-mono: 'Space Mono', monospace;
+	--font-sans: 'Space Grotesk', sans-serif;
+}
+
+:root {
+	--bg-primary: #1a1a2e;
+	--bg-secondary: #16213e;
+	--bg-tertiary: #0f3460;
+	--text-primary: #e0e0e0;
+	--text-secondary: #a0a0b0;
+	--text-muted: #606070;
+	--accent: #e94560;
+	--accent-hover: #d63851;
+	--success: #2ecc71;
+	--error: #e74c3c;
+	--warning: #f39c12;
+	--border: #2a2a4a;
+	--surface: #1e1e3a;
+	--key-bg: #252545;
+	--key-active: #e94560;
+	--key-correct: #2ecc71;
+	--key-error: #e74c3c;
+}
+
+[data-theme='light'] {
+	--bg-primary: #fafafa;
+	--bg-secondary: #f0f0f0;
+	--bg-tertiary: #e0e0e0;
+	--text-primary: #1a1a1a;
+	--text-secondary: #4a4a4a;
+	--text-muted: #8a8a8a;
+	--accent: #2563eb;
+	--accent-hover: #1d4ed8;
+	--success: #16a34a;
+	--error: #dc2626;
+	--warning: #d97706;
+	--border: #d4d4d4;
+	--surface: #ffffff;
+	--key-bg: #e8e8e8;
+	--key-active: #2563eb;
+	--key-correct: #16a34a;
+	--key-error: #dc2626;
+}
+
+[data-theme='midnight'] {
+	--bg-primary: #0f0e17;
+	--bg-secondary: #1a1927;
+	--bg-tertiary: #252437;
+	--text-primary: #a7a9be;
+	--text-secondary: #7f8196;
+	--text-muted: #4a4b5c;
+	--accent: #ff8906;
+	--accent-hover: #e67a00;
+	--success: #2cb67d;
+	--error: #ef4444;
+	--warning: #f59e0b;
+	--border: #2a293d;
+	--surface: #161525;
+	--key-bg: #1e1d30;
+	--key-active: #ff8906;
+	--key-correct: #2cb67d;
+	--key-error: #ef4444;
+}
+
+[data-theme='sepia'] {
+	--bg-primary: #f4ecd8;
+	--bg-secondary: #e8dcc4;
+	--bg-tertiary: #d4c8a8;
+	--text-primary: #5c4033;
+	--text-secondary: #7a6052;
+	--text-muted: #a08878;
+	--accent: #8b4513;
+	--accent-hover: #723a10;
+	--success: #4a7c59;
+	--error: #a0522d;
+	--warning: #b8860b;
+	--border: #c4b89c;
+	--surface: #faf4e6;
+	--key-bg: #e0d4be;
+	--key-active: #8b4513;
+	--key-correct: #4a7c59;
+	--key-error: #a0522d;
+}
+
+[data-theme='matrix'] {
+	--bg-primary: #0a0a0a;
+	--bg-secondary: #0d0d0d;
+	--bg-tertiary: #141414;
+	--text-primary: #00ff41;
+	--text-secondary: #00cc33;
+	--text-muted: #006618;
+	--accent: #00ff41;
+	--accent-hover: #00cc33;
+	--success: #00ff41;
+	--error: #ff0040;
+	--warning: #ffff00;
+	--border: #003311;
+	--surface: #0d1a0d;
+	--key-bg: #0a140a;
+	--key-active: #00ff41;
+	--key-correct: #00ff41;
+	--key-error: #ff0040;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-sans);
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+	min-height: 100vh;
+}
+
+::selection {
+	background-color: var(--accent);
+	color: var(--bg-primary);
+}
+
+/* Focus indicators — WCAG 2.1 AA */
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+/* Global button/interactive transitions */
+button, a, input, select, textarea {
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+button:active {
+	transform: scale(0.97);
+}
+
+/* Smooth page transitions */
+main {
+	animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(4px); }
+	to { opacity: 1; transform: translateY(0); }
+}
