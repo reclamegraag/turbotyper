@@ -35,7 +35,7 @@
 		combo = createComboState();
 		elapsed = 0;
 		stopTimer();
-		inputEl?.focus();
+		inputField?.focus();
 	});
 
 	function startTimer() {
@@ -86,10 +86,11 @@
 		combo = createComboState();
 		elapsed = 0;
 		stopTimer();
-		inputEl?.focus();
+		inputField?.focus();
 	}
 
 	let inputEl: HTMLDivElement | undefined = $state();
+	let inputField: HTMLInputElement | undefined = $state();
 </script>
 
 <div class="flex flex-col gap-6">
@@ -100,12 +101,20 @@
 		<ComboIndicator combo={combo.current} multiplier={combo.multiplier} />
 	</div>
 
+	<!-- Hidden input for keyboard capture -->
+	<input
+		bind:this={inputField}
+		type="text"
+		value=""
+		onkeydown={handleKeydown}
+		style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;"
+	/>
+
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		bind:this={inputEl}
-		tabindex={0}
-		onkeydown={handleKeydown}
+		onclick={() => inputField?.focus()}
 		class="relative cursor-text rounded-xl p-8 font-mono text-xl leading-relaxed outline-none focus:ring-2"
 		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent);"
 	>
