@@ -35,6 +35,7 @@
 		combo = createComboState();
 		elapsed = 0;
 		stopTimer();
+		inputEl?.focus();
 	});
 
 	function startTimer() {
