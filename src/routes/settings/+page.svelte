@@ -28,15 +28,15 @@
 </script>
 
 <div class="mx-auto flex w-full max-w-2xl flex-col gap-10 px-20 py-12">
-	<h1 class="text-3xl font-bold" style="color: var(--text-primary);">Instellingen</h1>
+	<h1 class="text-3xl font-bold" style="color: var(--text-primary);">{$settings.language === 'nl' ? 'Instellingen' : 'Settings'}</h1>
 
 	<section class="flex flex-col gap-4">
-		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">Thema</h2>
+		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">{$settings.language === 'nl' ? 'Thema' : 'Theme'}</h2>
 		<div class="grid grid-cols-5 gap-3">
 			{#each themes as theme}
 				<button
 					onclick={() => settings.setTheme(theme)}
-					class="flex flex-col items-center gap-2 rounded-lg px-5 py-4 transition-all duration-200"
+					class="flex flex-col items-center gap-2 rounded-lg px-6 py-5 transition-all duration-200"
 					style="
 						background-color: {themeBgs[theme]};
 						border: 2px solid {$settings.theme === theme ? themeAccents[theme] : 'transparent'};
@@ -59,7 +59,7 @@
 	</section>
 
 	<section class="flex flex-col gap-4">
-		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">Taal</h2>
+		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">{$settings.language === 'nl' ? 'Taal' : 'Language'}</h2>
 		<div class="flex gap-3">
 			<button
 				onclick={() => settings.setLanguage('nl')}
@@ -91,15 +91,15 @@
 	</section>
 
 	<section class="flex flex-col gap-4">
-		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">Weergave</h2>
+		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">{$settings.language === 'nl' ? 'Weergave' : 'Display'}</h2>
 		<div class="flex flex-col gap-3">
 			<label
-				class="flex cursor-pointer items-center justify-between rounded-lg px-5 py-4"
+				class="flex cursor-pointer items-center justify-between rounded-lg px-6 py-5"
 				style="background-color: var(--surface); border: 1px solid var(--border);"
 			>
 				<div class="flex items-center gap-3">
 					<i class="fa-solid fa-keyboard" style="color: var(--accent);"></i>
-					<span class="text-sm" style="color: var(--text-primary);">Toetsenbord tonen</span>
+					<span class="text-sm" style="color: var(--text-primary);">{$settings.language === 'nl' ? 'Toetsenbord tonen' : 'Show keyboard'}</span>
 				</div>
 				<input
 					type="checkbox"
@@ -109,12 +109,12 @@
 				/>
 			</label>
 			<label
-				class="flex cursor-pointer items-center justify-between rounded-lg px-5 py-4"
+				class="flex cursor-pointer items-center justify-between rounded-lg px-6 py-5"
 				style="background-color: var(--surface); border: 1px solid var(--border);"
 			>
 				<div class="flex items-center gap-3">
 					<i class="fa-solid fa-hand" style="color: var(--accent);"></i>
-					<span class="text-sm" style="color: var(--text-primary);">Handpositie tonen</span>
+					<span class="text-sm" style="color: var(--text-primary);">{$settings.language === 'nl' ? 'Handpositie tonen' : 'Show hand position'}</span>
 				</div>
 				<input
 					type="checkbox"

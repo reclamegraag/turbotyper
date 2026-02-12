@@ -15,12 +15,12 @@
 		return unsubscribe;
 	});
 
-	const navItems = [
+	const navItems = $derived([
 		{ href: '/', label: 'Home', icon: 'fa-solid fa-house' },
-		{ href: '/lessons', label: 'Lessen', icon: 'fa-solid fa-graduation-cap' },
+		{ href: '/lessons', label: $settings.language === 'nl' ? 'Lessen' : 'Lessons', icon: 'fa-solid fa-graduation-cap' },
 		{ href: '/dashboard', label: 'Dashboard', icon: 'fa-solid fa-chart-line' },
-		{ href: '/settings', label: 'Instellingen', icon: 'fa-solid fa-gear' }
-	];
+		{ href: '/settings', label: $settings.language === 'nl' ? 'Instellingen' : 'Settings', icon: 'fa-solid fa-gear' }
+	]);
 </script>
 
 <div class="flex min-h-screen flex-col" style="background-color: var(--bg-primary); color: var(--text-primary);">

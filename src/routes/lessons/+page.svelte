@@ -86,7 +86,7 @@
 			style="color: var(--text-secondary); cursor: pointer; background: none; border: none;"
 		>
 			<i class="fa-solid fa-arrow-left"></i>
-			Terug naar lessen
+			{$settings.language === 'nl' ? 'Terug naar lessen' : 'Back to lessons'}
 		</button>
 		<TypingArea text={drillText} onComplete={handleComplete} />
 		{#if sessionResult}
