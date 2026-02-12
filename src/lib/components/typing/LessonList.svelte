@@ -31,7 +31,7 @@
 					border: 1px solid {completed ? 'var(--success)' : 'var(--border)'};
 					opacity: {unlocked ? 1 : 0.5};
 					cursor: {unlocked ? 'pointer' : 'not-allowed'};
-					padding: 7px 20px;
+					padding: 16px 20px;
 				"
 			>
 				<div

@@ -44,7 +44,7 @@
 			background-color: var(--surface);
 			color: var(--text-secondary);
 			border: 1px solid var(--border);
-			padding: 7px 20px;
+			padding: 10px 20px;
 			cursor: pointer;
 		"
 	>

@@ -15,14 +15,14 @@
 		class:combo-great={comboTier === 'great'}
 		class:combo-epic={comboTier === 'epic'}
 		class:combo-legendary={comboTier === 'legendary'}
-		style="background-color: var(--surface); border: 1px solid var(--border); padding: 7px 20px;"
+		style="background-color: var(--surface); border: 1px solid var(--border); padding: 10px 20px;"
 	>
 		<div class="flex items-center gap-2">
 			<i class="fa-solid fa-fire" style="color: var(--accent);"></i>
 			<span class="font-mono text-lg font-bold" style="color: var(--accent);">{combo}</span>
 		</div>
 		{#if multiplier > 1}
-			<span class="rounded font-mono text-xs font-bold" style="background-color: var(--accent); color: var(--bg-primary); padding: 7px 20px;">
+			<span class="rounded font-mono text-xs font-bold" style="background-color: var(--accent); color: var(--bg-primary); padding: 6px 12px;">
 				×{multiplier}
 			</span>
 		{/if}

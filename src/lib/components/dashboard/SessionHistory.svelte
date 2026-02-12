@@ -47,7 +47,7 @@
 						</span>
 						<span
 							class="rounded-md text-xs font-medium"
-							style="background-color: var(--bg-tertiary); color: var(--text-secondary); padding: 7px 20px;"
+							style="background-color: var(--bg-tertiary); color: var(--text-secondary); padding: 6px 14px;"
 						>
 							{modeLabels[$settings.language]?.[session.mode] ?? session.mode}
 						</span>

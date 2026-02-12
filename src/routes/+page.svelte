@@ -96,7 +96,7 @@
 					background-color: {selectedMode === mode.id ? 'var(--accent)' : 'var(--surface)'};
 					color: {selectedMode === mode.id ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {selectedMode === mode.id ? 'var(--accent)' : 'var(--border)'};
-					padding: 7px 20px;
+					padding: 10px 20px;
 					cursor: pointer;
 				"
 			>
