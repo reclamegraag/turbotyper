@@ -68,7 +68,7 @@
 					background-color: {$settings.language === 'nl' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'nl' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'nl' ? 'var(--accent)' : 'var(--border)'};
-					padding: 9px 24px;
+					padding: 7px 20px;
 					cursor: pointer;
 				"
 			>
@@ -81,7 +81,7 @@
 					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'en' ? 'var(--accent)' : 'var(--border)'};
-					padding: 9px 24px;
+					padding: 7px 20px;
 					cursor: pointer;
 				"
 			>
@@ -89,11 +89,12 @@
 			</button>
 			<button
 				onclick={() => settings.setLanguage('en')}
-				class="rounded-xl px-12 py-4 text-sm font-medium transition-all duration-200"
+				class="rounded-full text-sm font-medium transition-all duration-200"
 				style="
 					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'en' ? 'var(--accent)' : 'var(--border)'};
+					padding: 7px 20px;
 					cursor: pointer;
 				"
 			>

@@ -46,8 +46,8 @@
 							{formatDate(session.date)}
 						</span>
 						<span
-							class="rounded-md px-2 py-0.5 text-xs font-medium"
-							style="background-color: var(--bg-tertiary); color: var(--text-secondary);"
+							class="rounded-md text-xs font-medium"
+							style="background-color: var(--bg-tertiary); color: var(--text-secondary); padding: 7px 20px;"
 						>
 							{modeLabels[$settings.language]?.[session.mode] ?? session.mode}
 						</span>

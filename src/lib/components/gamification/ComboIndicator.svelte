@@ -10,19 +10,19 @@
 
 {#if showCombo}
 	<div
-		class="combo-indicator flex items-center gap-3 rounded-lg px-4 py-2 transition-all duration-200"
+		class="combo-indicator flex items-center gap-3 rounded-lg transition-all duration-200"
 		class:combo-good={comboTier === 'good'}
 		class:combo-great={comboTier === 'great'}
 		class:combo-epic={comboTier === 'epic'}
 		class:combo-legendary={comboTier === 'legendary'}
-		style="background-color: var(--surface); border: 1px solid var(--border);"
+		style="background-color: var(--surface); border: 1px solid var(--border); padding: 7px 20px;"
 	>
 		<div class="flex items-center gap-2">
 			<i class="fa-solid fa-fire" style="color: var(--accent);"></i>
 			<span class="font-mono text-lg font-bold" style="color: var(--accent);">{combo}</span>
 		</div>
 		{#if multiplier > 1}
-			<span class="rounded px-2 py-0.5 font-mono text-xs font-bold" style="background-color: var(--accent); color: var(--bg-primary);">
+			<span class="rounded font-mono text-xs font-bold" style="background-color: var(--accent); color: var(--bg-primary); padding: 7px 20px;">
 				×{multiplier}
 			</span>
 		{/if}
