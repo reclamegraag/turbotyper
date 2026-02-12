@@ -80,18 +80,18 @@
 	}
 </script>
 
-<div class="flex flex-1 flex-col items-center gap-8 px-8 py-8">
-	<div class="flex flex-col items-center gap-2 text-center">
+<div class="flex flex-1 flex-col items-center gap-12 px-10 py-12">
+	<div class="flex flex-col items-center gap-4 text-center">
 		<h1 class="font-sans text-4xl font-bold tracking-tight" style="color: var(--text-primary);">
 			Turbo<span style="color: var(--accent);">Typer</span>
 		</h1>
 	</div>
 
-	<div class="flex gap-2">
+	<div class="flex gap-4">
 		{#each modes as mode}
 			<button
 				onclick={() => selectMode(mode.id)}
-				class="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200"
+				class="flex items-center gap-3 rounded-lg px-6 py-4 text-sm font-medium transition-all duration-200"
 				style="
 					background-color: {selectedMode === mode.id ? 'var(--accent)' : 'var(--surface)'};
 					color: {selectedMode === mode.id ? 'var(--bg-primary)' : 'var(--text-secondary)'};
@@ -105,7 +105,7 @@
 		{/each}
 	</div>
 
-	<div class="w-full max-w-3xl flex flex-col gap-6">
+	<div class="w-full max-w-3xl flex flex-col gap-10">
 		<TypingArea text={drillText} onComplete={handleComplete} />
 		{#if sessionResult}
 			<SessionSummary

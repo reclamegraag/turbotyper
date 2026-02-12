@@ -3,89 +3,128 @@
 
 	let { activeFinger = '' }: { activeFinger?: string } = $props();
 
-	const leftFingers: { id: Finger; x: number }[] = [
-		{ id: 'left-pinky', x: 15 },
-		{ id: 'left-ring', x: 30 },
-		{ id: 'left-middle', x: 45 },
-		{ id: 'left-index', x: 60 }
+	const leftFingers: { id: Finger; x: number; y: number; h: number }[] = [
+		{ id: 'left-pinky', x: 14, y: 18, h: 28 },
+		{ id: 'left-ring', x: 28, y: 10, h: 36 },
+		{ id: 'left-middle', x: 42, y: 4, h: 42 },
+		{ id: 'left-index', x: 56, y: 12, h: 34 }
 	];
 
-	const rightFingers: { id: Finger; x: number }[] = [
-		{ id: 'right-index', x: 140 },
-		{ id: 'right-middle', x: 155 },
-		{ id: 'right-ring', x: 170 },
-		{ id: 'right-pinky', x: 185 }
+	const rightFingers: { id: Finger; x: number; y: number; h: number }[] = [
+		{ id: 'right-index', x: 124, y: 12, h: 34 },
+		{ id: 'right-middle', x: 138, y: 4, h: 42 },
+		{ id: 'right-ring', x: 152, y: 10, h: 36 },
+		{ id: 'right-pinky', x: 166, y: 18, h: 28 }
 	];
 
-	const thumbs: { id: Finger; x: number }[] = [
-		{ id: 'thumb', x: 100 }
-	];
+	const FINGER_W = 10;
+	const FINGER_R = 5;
 
-	function isActive(finger: Finger): boolean {
-		return activeFinger === finger;
+	function isActive(id: string): boolean {
+		if (activeFinger === 'thumb' && id === 'thumb') return true;
+		return activeFinger === id;
 	}
 </script>
 
-<div class="flex justify-center">
-	<svg viewBox="0 0 200 80" width="400" height="160" class="select-none">
-		{#each leftFingers as finger}
-			<circle
-				cx={finger.x}
-				cy={20}
-				r={isActive(finger.id) ? 10 : 8}
-				fill={isActive(finger.id) ? 'var(--accent)' : 'var(--key-bg)'}
-				stroke={isActive(finger.id) ? 'var(--accent)' : 'var(--border)'}
-				stroke-width="1.5"
-				opacity={isActive(finger.id) ? 1 : 0.6}
-			>
-				{#if isActive(finger.id)}
-					<animate attributeName="r" values="8;10;8" dur="0.6s" repeatCount="1" />
-				{/if}
-			</circle>
-			<line
-				x1={finger.x} y1={30} x2={finger.x} y2={55}
-				stroke={isActive(finger.id) ? 'var(--accent)' : 'var(--border)'}
-				stroke-width="2"
-				opacity={isActive(finger.id) ? 0.8 : 0.3}
-			/>
-		{/each}
+<div class="hand-guide-wrapper">
+	<svg viewBox="0 0 190 80" aria-hidden="true">
+		<defs>
+			<filter id="glow">
+				<feGaussianBlur stdDeviation="2" result="blur" />
+				<feMerge>
+					<feMergeNode in="blur" />
+					<feMergeNode in="SourceGraphic" />
+				</feMerge>
+			</filter>
+		</defs>
 
-		{#each rightFingers as finger}
-			<circle
-				cx={finger.x}
-				cy={20}
-				r={isActive(finger.id) ? 10 : 8}
-				fill={isActive(finger.id) ? 'var(--accent)' : 'var(--key-bg)'}
-				stroke={isActive(finger.id) ? 'var(--accent)' : 'var(--border)'}
-				stroke-width="1.5"
-				opacity={isActive(finger.id) ? 1 : 0.6}
-			>
-				{#if isActive(finger.id)}
-					<animate attributeName="r" values="8;10;8" dur="0.6s" repeatCount="1" />
-				{/if}
-			</circle>
-			<line
-				x1={finger.x} y1={30} x2={finger.x} y2={55}
-				stroke={isActive(finger.id) ? 'var(--accent)' : 'var(--border)'}
-				stroke-width="2"
-				opacity={isActive(finger.id) ? 0.8 : 0.3}
-			/>
-		{/each}
+		<!-- Left hand -->
+		<g>
+			<!-- Palm -->
+			<rect x="10" y="42" width="60" height="28" rx="8" class="palm" />
 
-		{#each thumbs as finger}
-			<ellipse
-				cx={finger.x}
-				cy={65}
-				rx={isActive(finger.id) ? 14 : 12}
-				ry={isActive(finger.id) ? 8 : 6}
-				fill={isActive(finger.id) ? 'var(--accent)' : 'var(--key-bg)'}
-				stroke={isActive(finger.id) ? 'var(--accent)' : 'var(--border)'}
-				stroke-width="1.5"
-				opacity={isActive(finger.id) ? 1 : 0.6}
-			/>
-		{/each}
+			<!-- Fingers -->
+			{#each leftFingers as f}
+				<rect
+					x={f.x}
+					y={f.y}
+					width={FINGER_W}
+					height={f.h}
+					rx={FINGER_R}
+					class="finger"
+					class:active={isActive(f.id)}
+				/>
+			{/each}
 
-		<rect x="5" y="55" width="70" height="20" rx="8" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.3" />
-		<rect x="125" y="55" width="70" height="20" rx="8" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.3" />
+			<!-- Left thumb -->
+			<rect
+				x="62" y="56" width={FINGER_W} height="20" rx={FINGER_R}
+				transform="rotate(25, 67, 66)"
+				class="finger"
+				class:active={isActive('thumb')}
+			/>
+		</g>
+
+		<!-- Right hand -->
+		<g>
+			<!-- Palm -->
+			<rect x="120" y="42" width="60" height="28" rx="8" class="palm" />
+
+			<!-- Fingers -->
+			{#each rightFingers as f}
+				<rect
+					x={f.x}
+					y={f.y}
+					width={FINGER_W}
+					height={f.h}
+					rx={FINGER_R}
+					class="finger"
+					class:active={isActive(f.id)}
+				/>
+			{/each}
+
+			<!-- Right thumb -->
+			<rect
+				x="118" y="56" width={FINGER_W} height="20" rx={FINGER_R}
+				transform="rotate(-25, 123, 66)"
+				class="finger"
+				class:active={isActive('thumb')}
+			/>
+		</g>
 	</svg>
 </div>
+
+<style>
+	.hand-guide-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	svg {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+	}
+
+	.palm {
+		fill: var(--surface);
+		stroke: var(--border);
+		stroke-width: 0.75;
+		opacity: 0.25;
+	}
+
+	.finger {
+		fill: var(--key-bg);
+		stroke: var(--border);
+		stroke-width: 0.75;
+		opacity: 0.45;
+		transition: fill 0.15s ease, opacity 0.15s ease, filter 0.15s ease;
+	}
+
+	.finger.active {
+		fill: var(--accent);
+		stroke: var(--accent);
+		opacity: 1;
+		filter: url(#glow);
+	}
+</style>

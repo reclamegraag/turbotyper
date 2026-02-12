@@ -38,6 +38,13 @@
 		inputField?.focus();
 	});
 
+	// Auto-focus on mount (inputField is undefined during first $effect run)
+	$effect(() => {
+		if (inputField) {
+			inputField.focus();
+		}
+	});
+
 	function startTimer() {
 		if (intervalId) return;
 		intervalId = setInterval(() => {
@@ -93,8 +100,8 @@
 	let inputField: HTMLInputElement | undefined = $state();
 </script>
 
-<div class="flex flex-col gap-6">
-	<div class="flex items-center gap-4">
+<div class="flex flex-col gap-8">
+	<div class="flex items-center gap-6">
 		<div class="flex-1">
 			<StatsBar wpm={typing.wpm} accuracy={typing.accuracy} {elapsed} onRestart={restart} />
 		</div>
@@ -105,7 +112,7 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		bind:this={inputEl}
-		class="relative cursor-text rounded-xl p-8 font-mono text-xl leading-relaxed outline-none focus:ring-2"
+		class="relative cursor-text rounded-xl px-20 py-16 font-mono text-xl leading-relaxed outline-none focus:ring-2"
 		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent);"
 	>
 		<!-- Hidden input for keyboard capture - positioned over the div -->
@@ -113,14 +120,10 @@
 			bind:this={inputField}
 			type="text"
 			value=""
+			autofocus
 			onkeydown={handleKeydown}
 			style="position: absolute; inset: 0; opacity: 0; cursor: inherit; font-size: inherit;"
 		/>
-		{#if !typing.isActive && typing.input.length === 0}
-			<div class="pointer-events-none absolute inset-0 flex items-center justify-center" style="color: var(--text-muted);">
-				Klik hier en begin met typen...
-			</div>
-		{/if}
 		<div class="flex flex-wrap">
 			{#each text.split('') as char, i}
 				{@const status = getCharStatus(typing.text, typing.input, i)}

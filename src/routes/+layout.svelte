@@ -24,15 +24,15 @@
 </script>
 
 <div class="flex min-h-screen flex-col" style="background-color: var(--bg-primary); color: var(--text-primary);">
-	<nav class="flex items-center justify-between px-8 py-4" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border);">
+	<nav class="flex items-center justify-between px-16 py-6" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border);">
 		<a href="/" class="font-mono text-xl font-bold tracking-tight" style="color: var(--accent); text-decoration: none;">
 			TurboTyper
 		</a>
-		<div class="flex items-center gap-6">
+		<div class="flex items-center gap-10">
 			{#each navItems as item}
 				<a
 					href={item.href}
-					class="flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+					class="flex items-center gap-3 text-sm font-medium transition-colors duration-200"
 					style="color: {$page.url.pathname === item.href ? 'var(--accent)' : 'var(--text-secondary)'}; text-decoration: none;"
 				>
 					<i class={item.icon}></i>

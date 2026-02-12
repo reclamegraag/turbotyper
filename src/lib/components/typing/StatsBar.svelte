@@ -19,23 +19,23 @@
 </script>
 
 <div class="flex items-center justify-between">
-	<div class="flex gap-6">
-		<div class="flex flex-col items-center gap-1">
+	<div class="flex gap-10">
+		<div class="flex flex-col items-center gap-2">
 			<span class="text-xs font-medium uppercase tracking-wider" style="color: var(--text-muted);">WPM</span>
 			<span class="font-mono text-2xl font-bold" style="color: var(--accent);">{wpm}</span>
 		</div>
-		<div class="flex flex-col items-center gap-1">
+		<div class="flex flex-col items-center gap-2">
 			<span class="text-xs font-medium uppercase tracking-wider" style="color: var(--text-muted);">Accuracy</span>
 			<span class="font-mono text-2xl font-bold" style="color: var(--text-primary);">{accuracy}%</span>
 		</div>
-		<div class="flex flex-col items-center gap-1">
+		<div class="flex flex-col items-center gap-2">
 			<span class="text-xs font-medium uppercase tracking-wider" style="color: var(--text-muted);">Tijd</span>
 			<span class="font-mono text-2xl font-bold" style="color: var(--text-primary);">{formatTime(elapsed)}</span>
 		</div>
 	</div>
 	<button
 		onclick={onRestart}
-		class="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-200"
+		class="flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-colors duration-200"
 		style="background-color: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); cursor: pointer;"
 	>
 		<i class="fa-solid fa-rotate-right"></i>
