@@ -18,11 +18,12 @@
 		{#each achievements as achievement}
 			{@const unlocked = unlockedSet.has(achievement.id)}
 			<div
-				class="flex flex-col items-center gap-2 rounded-xl p-4 transition-all duration-200"
+				class="flex flex-col items-center gap-2 rounded-xl transition-all duration-200"
 				style="
 					background-color: var(--surface);
 					border: 1px solid {unlocked ? 'var(--accent)' : 'var(--border)'};
 					opacity: {unlocked ? 1 : 0.4};
+					padding: 7px 20px;
 				"
 			>
 				<div
