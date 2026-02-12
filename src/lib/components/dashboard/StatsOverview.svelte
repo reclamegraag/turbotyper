@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { settings } from '$lib/stores/settings';
+
 	let {
 		totalSessions,
 		totalTimeMinutes,
@@ -17,6 +19,8 @@
 		level: number;
 	}>();
 
+	let nl = $derived($settings.language === 'nl');
+
 	function formatTime(minutes: number) {
 		const m = Math.round(minutes);
 		if (m < 60) return `${m}m`;
@@ -29,35 +33,35 @@
 	<div class="stat-card">
 		<div class="icon"><i class="fa-solid fa-keyboard"></i></div>
 		<div class="content">
-			<div class="label">Sessies</div>
+			<div class="label">{nl ? 'Sessies' : 'Sessions'}</div>
 			<div class="value">{totalSessions}</div>
 		</div>
 	</div>
 	<div class="stat-card">
 		<div class="icon"><i class="fa-solid fa-clock"></i></div>
 		<div class="content">
-			<div class="label">Oefentijd</div>
+			<div class="label">{nl ? 'Oefentijd' : 'Practice time'}</div>
 			<div class="value">{formatTime(totalTimeMinutes)}</div>
 		</div>
 	</div>
 	<div class="stat-card">
 		<div class="icon"><i class="fa-solid fa-trophy"></i></div>
 		<div class="content">
-			<div class="label">Beste WPM</div>
+			<div class="label">{nl ? 'Beste WPM' : 'Best WPM'}</div>
 			<div class="value">{bestWpm}</div>
 		</div>
 	</div>
 	<div class="stat-card">
 		<div class="icon"><i class="fa-solid fa-gauge-high"></i></div>
 		<div class="content">
-			<div class="label">Gem. WPM</div>
+			<div class="label">{nl ? 'Gem. WPM' : 'Avg. WPM'}</div>
 			<div class="value">{averageWpm}</div>
 		</div>
 	</div>
 	<div class="stat-card">
 		<div class="icon"><i class="fa-solid fa-bullseye"></i></div>
 		<div class="content">
-			<div class="label">Gem. Accuracy</div>
+			<div class="label">{nl ? 'Gem. Accuracy' : 'Avg. Accuracy'}</div>
 			<div class="value">{averageAccuracy}%</div>
 		</div>
 	</div>
@@ -65,7 +69,7 @@
 		<div class="icon"><i class="fa-solid fa-fire"></i></div>
 		<div class="content">
 			<div class="label">Streak</div>
-			<div class="value">{streak} dagen</div>
+			<div class="value">{streak} {nl ? 'dagen' : 'days'}</div>
 		</div>
 	</div>
 </div>

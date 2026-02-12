@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { settings } from '$lib/stores/settings';
+
 	let {
 		wpm = 0,
 		accuracy = 0,
@@ -10,6 +12,8 @@
 		elapsed: number;
 		onRestart: () => void;
 	} = $props();
+
+	let nl = $derived($settings.language === 'nl');
 
 	function formatTime(seconds: number): string {
 		const m = Math.floor(seconds / 60);
@@ -29,7 +33,7 @@
 			<span class="font-mono text-2xl font-bold" style="color: var(--text-primary);">{accuracy}%</span>
 		</div>
 		<div class="flex flex-col items-center gap-2">
-			<span class="text-xs font-medium uppercase tracking-wider" style="color: var(--text-muted);">Tijd</span>
+			<span class="text-xs font-medium uppercase tracking-wider" style="color: var(--text-muted);">{nl ? 'Tijd' : 'Time'}</span>
 			<span class="font-mono text-2xl font-bold" style="color: var(--text-primary);">{formatTime(elapsed)}</span>
 		</div>
 	</div>
@@ -40,11 +44,11 @@
 			background-color: var(--surface);
 			color: var(--text-secondary);
 			border: 1px solid var(--border);
-			padding: 7px 20px;
+			padding: 10px 20px;
 			cursor: pointer;
 		"
 	>
 		<i class="fa-solid fa-rotate-right"></i>
-		Opnieuw
+		{nl ? 'Opnieuw' : 'Restart'}
 	</button>
 </div>

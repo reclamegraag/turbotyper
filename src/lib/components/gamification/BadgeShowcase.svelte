@@ -23,7 +23,7 @@
 					background-color: var(--surface);
 					border: 1px solid {unlocked ? 'var(--accent)' : 'var(--border)'};
 					opacity: {unlocked ? 1 : 0.4};
-					padding: 7px 20px;
+					padding: 20px 16px;
 				"
 			>
 				<div
