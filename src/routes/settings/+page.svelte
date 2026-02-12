@@ -36,7 +36,7 @@
 			{#each themes as theme}
 				<button
 					onclick={() => settings.setTheme(theme)}
-					class="flex flex-col items-center gap-2 rounded-lg p-4 transition-all duration-200"
+					class="flex flex-col items-center gap-2 rounded-lg px-5 py-4 transition-all duration-200"
 					style="
 						background-color: {themeBgs[theme]};
 						border: 2px solid {$settings.theme === theme ? themeAccents[theme] : 'transparent'};
@@ -87,19 +87,6 @@
 			>
 				English
 			</button>
-			<button
-				onclick={() => settings.setLanguage('en')}
-				class="rounded-full text-sm font-medium transition-all duration-200"
-				style="
-					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
-					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
-					border: 1px solid {$settings.language === 'en' ? 'var(--accent)' : 'var(--border)'};
-					padding: 7px 20px;
-					cursor: pointer;
-				"
-			>
-				English
-			</button>
 		</div>
 	</section>
 
@@ -107,7 +94,7 @@
 		<h2 class="text-lg font-semibold" style="color: var(--text-secondary);">Weergave</h2>
 		<div class="flex flex-col gap-3">
 			<label
-				class="flex cursor-pointer items-center justify-between rounded-lg p-4"
+				class="flex cursor-pointer items-center justify-between rounded-lg px-5 py-4"
 				style="background-color: var(--surface); border: 1px solid var(--border);"
 			>
 				<div class="flex items-center gap-3">
@@ -122,7 +109,7 @@
 				/>
 			</label>
 			<label
-				class="flex cursor-pointer items-center justify-between rounded-lg p-4"
+				class="flex cursor-pointer items-center justify-between rounded-lg px-5 py-4"
 				style="background-color: var(--surface); border: 1px solid var(--border);"
 			>
 				<div class="flex items-center gap-3">
