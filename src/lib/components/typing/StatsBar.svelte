@@ -40,7 +40,7 @@
 			background-color: var(--surface);
 			color: var(--text-secondary);
 			border: 1px solid var(--border);
-			padding: 14px 40px;
+			padding: 7px 20px;
 			cursor: pointer;
 		"
 	>

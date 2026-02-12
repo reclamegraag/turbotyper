@@ -68,7 +68,7 @@
 					background-color: {$settings.language === 'nl' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'nl' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'nl' ? 'var(--accent)' : 'var(--border)'};
-					padding: 18px 48px;
+					padding: 9px 24px;
 					cursor: pointer;
 				"
 			>
@@ -81,7 +81,7 @@
 					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'en' ? 'var(--accent)' : 'var(--border)'};
-					padding: 18px 48px;
+					padding: 9px 24px;
 					cursor: pointer;
 				"
 			>
