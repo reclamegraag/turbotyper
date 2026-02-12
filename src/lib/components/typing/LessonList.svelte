@@ -25,12 +25,13 @@
 			<button
 				onclick={() => unlocked && onSelectLesson(lesson.id)}
 				disabled={!unlocked}
-				class="flex items-center gap-4 rounded-xl p-5 text-left transition-all duration-200"
+				class="flex items-center gap-4 rounded-xl text-left transition-all duration-200"
 				style="
 					background-color: var(--surface);
 					border: 1px solid {completed ? 'var(--success)' : 'var(--border)'};
 					opacity: {unlocked ? 1 : 0.5};
 					cursor: {unlocked ? 'pointer' : 'not-allowed'};
+					padding: 7px 20px;
 				"
 			>
 				<div
