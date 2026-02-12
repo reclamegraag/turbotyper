@@ -35,8 +35,14 @@
 	</div>
 	<button
 		onclick={onRestart}
-		class="flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-colors duration-200"
-		style="background-color: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); cursor: pointer;"
+		class="flex items-center gap-3 rounded-full text-sm font-medium transition-colors duration-200"
+		style="
+			background-color: var(--surface);
+			color: var(--text-secondary);
+			border: 1px solid var(--border);
+			padding: 14px 40px;
+			cursor: pointer;
+		"
 	>
 		<i class="fa-solid fa-rotate-right"></i>
 		Opnieuw

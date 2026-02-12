@@ -27,7 +27,7 @@
 	};
 </script>
 
-<div class="mx-auto flex w-full max-w-2xl flex-col gap-10 px-8 py-12">
+<div class="mx-auto flex w-full max-w-2xl flex-col gap-10 px-20 py-12">
 	<h1 class="text-3xl font-bold" style="color: var(--text-primary);">Instellingen</h1>
 
 	<section class="flex flex-col gap-4">
@@ -63,11 +63,12 @@
 		<div class="flex gap-3">
 			<button
 				onclick={() => settings.setLanguage('nl')}
-				class="rounded-lg px-6 py-3 text-sm font-medium transition-all duration-200"
+				class="rounded-full text-sm font-medium transition-all duration-200"
 				style="
 					background-color: {$settings.language === 'nl' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'nl' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {$settings.language === 'nl' ? 'var(--accent)' : 'var(--border)'};
+					padding: 18px 48px;
 					cursor: pointer;
 				"
 			>
@@ -75,7 +76,20 @@
 			</button>
 			<button
 				onclick={() => settings.setLanguage('en')}
-				class="rounded-lg px-6 py-3 text-sm font-medium transition-all duration-200"
+				class="rounded-full text-sm font-medium transition-all duration-200"
+				style="
+					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
+					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};
+					border: 1px solid {$settings.language === 'en' ? 'var(--accent)' : 'var(--border)'};
+					padding: 18px 48px;
+					cursor: pointer;
+				"
+			>
+				English
+			</button>
+			<button
+				onclick={() => settings.setLanguage('en')}
+				class="rounded-xl px-12 py-4 text-sm font-medium transition-all duration-200"
 				style="
 					background-color: {$settings.language === 'en' ? 'var(--accent)' : 'var(--surface)'};
 					color: {$settings.language === 'en' ? 'var(--bg-primary)' : 'var(--text-secondary)'};

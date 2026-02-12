@@ -24,7 +24,7 @@
 </script>
 
 <div class="flex min-h-screen flex-col" style="background-color: var(--bg-primary); color: var(--text-primary);">
-	<nav class="flex items-center justify-between px-16 py-6" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border);">
+	<nav class="flex items-center justify-between px-20 py-6" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border);">
 		<a href="/" class="font-mono text-xl font-bold tracking-tight" style="color: var(--accent); text-decoration: none;">
 			TurboTyper
 		</a>

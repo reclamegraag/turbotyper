@@ -27,7 +27,7 @@
 	);
 </script>
 
-<div class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-8 py-8">
+<div class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-20 py-12">
 	<h1 class="text-3xl font-bold" style="color: var(--text-primary);">Dashboard</h1>
 
 	<StatsOverview

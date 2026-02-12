@@ -80,7 +80,7 @@
 	}
 </script>
 
-<div class="flex flex-1 flex-col items-center gap-12 px-10 py-12">
+<div class="flex flex-1 flex-col items-center gap-12 px-20 py-12">
 	<div class="flex flex-col items-center gap-4 text-center">
 		<h1 class="font-sans text-4xl font-bold tracking-tight" style="color: var(--text-primary);">
 			Turbo<span style="color: var(--accent);">Typer</span>
@@ -91,11 +91,12 @@
 		{#each modes as mode}
 			<button
 				onclick={() => selectMode(mode.id)}
-				class="flex items-center gap-3 rounded-lg px-6 py-4 text-sm font-medium transition-all duration-200"
+				class="flex items-center gap-4 rounded-full text-sm font-medium transition-all duration-200"
 				style="
 					background-color: {selectedMode === mode.id ? 'var(--accent)' : 'var(--surface)'};
 					color: {selectedMode === mode.id ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {selectedMode === mode.id ? 'var(--accent)' : 'var(--border)'};
+					padding: 18px 48px;
 					cursor: pointer;
 				"
 			>

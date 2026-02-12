@@ -79,7 +79,7 @@
 </script>
 
 {#if activeLesson !== null}
-	<div class="mx-auto flex w-full max-w-3xl flex-col gap-6 px-8 py-8">
+	<div class="mx-auto flex w-full max-w-3xl flex-col gap-6 px-20 py-12">
 		<button
 			onclick={backToList}
 			class="flex items-center gap-2 self-start text-sm font-medium transition-colors duration-200"
