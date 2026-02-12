@@ -113,7 +113,7 @@
 	<div
 		bind:this={inputEl}
 		class="relative cursor-text rounded-xl font-mono text-xl leading-relaxed outline-none focus:ring-2"
-		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent); padding: 40px 48px;"
+		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent); padding: 13px 16px;"
 	>
 		<!-- Hidden input for keyboard capture - positioned over the div -->
 		<input
