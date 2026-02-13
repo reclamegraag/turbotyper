@@ -6,15 +6,17 @@
 	let unlockedSet = $derived(new Set($gamification.unlockedBadges));
 </script>
 
-<div class="flex flex-col gap-6">
-	<h2 class="text-xl font-bold" style="color: var(--text-primary);">
-		{$settings.language === 'nl' ? 'Badges' : 'Badges'}
-		<span class="text-sm font-normal" style="color: var(--text-muted);">
-			{$gamification.unlockedBadges.length}/{achievements.length}
-		</span>
-	</h2>
+<div class="flex flex-col gap-8">
+	<div class="flex flex-col items-center gap-2">
+		<h2 class="text-xs font-black uppercase tracking-[0.2em] opacity-40">
+			{$settings.language === 'nl' ? 'Badges' : 'Badges'}
+		</h2>
+		<div class="text-[10px] font-black tracking-widest opacity-20">
+			{$gamification.unlockedBadges.length} / {achievements.length} UNLOCKED
+		</div>
+	</div>
 
-	<div class="grid grid-cols-4 gap-4">
+	<div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5">
 		{#each achievements as achievement}
 			{@const unlocked = unlockedSet.has(achievement.id)}
 			<div
