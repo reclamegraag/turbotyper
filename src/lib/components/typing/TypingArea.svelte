@@ -102,8 +102,23 @@
 
 <div class="flex flex-col items-center gap-10 w-full">
 	<div class="flex flex-col items-center gap-6 w-full max-w-2xl">
-		<StatsBar wpm={typing.wpm} accuracy={typing.accuracy} {elapsed} onRestart={restart} />
-		<ComboIndicator combo={combo.current} multiplier={combo.multiplier} />
+		<StatsBar wpm={typing.wpm} accuracy={typing.accuracy} {elapsed} />
+		<div class="flex items-center gap-4">
+			<button
+				onclick={restart}
+				class="group flex items-center gap-3 rounded-2xl px-8 py-4 text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 active:scale-95 shadow-lg"
+				style="
+					background-color: var(--surface);
+					color: var(--text-secondary);
+					border: 1px solid var(--border);
+					cursor: pointer;
+				"
+			>
+				<i class="fa-solid fa-rotate-right transition-transform duration-700 group-hover:rotate-180"></i>
+				{$settings.language === 'nl' ? 'Opnieuw proberen' : 'Restart drill'}
+			</button>
+			<ComboIndicator combo={combo.current} multiplier={combo.multiplier} />
+		</div>
 	</div>
 
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->

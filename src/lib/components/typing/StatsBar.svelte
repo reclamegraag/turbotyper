@@ -4,13 +4,11 @@
 	let {
 		wpm = 0,
 		accuracy = 0,
-		elapsed = 0,
-		onRestart
+		elapsed = 0
 	}: {
 		wpm: number;
 		accuracy: number;
 		elapsed: number;
-		onRestart: () => void;
 	} = $props();
 
 	let nl = $derived($settings.language === 'nl');
@@ -37,17 +35,4 @@
 			<span class="font-mono text-4xl font-black" style="color: var(--text-primary);">{formatTime(elapsed)}</span>
 		</div>
 	</div>
-	<button
-		onclick={onRestart}
-		class="group flex items-center gap-3 rounded-2xl px-8 py-4 text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 active:scale-95 shadow-lg"
-		style="
-			background-color: var(--surface);
-			color: var(--text-secondary);
-			border: 1px solid var(--border);
-			cursor: pointer;
-		"
-	>
-		<i class="fa-solid fa-rotate-right transition-transform duration-700 group-hover:rotate-180"></i>
-		{nl ? 'Opnieuw proberen' : 'Restart drill'}
-	</button>
 </div>
