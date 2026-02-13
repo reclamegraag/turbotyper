@@ -81,15 +81,6 @@
 </script>
 
 <div class="flex flex-1 flex-col items-center gap-12 py-8">
-	<div class="flex flex-col items-center gap-4 text-center">
-		<h1 class="font-sans text-5xl font-extrabold tracking-tight">
-			Turbo<span style="color: var(--accent);">Typer</span>
-		</h1>
-		<p class="max-w-md text-balance text-lg font-medium opacity-60">
-			De snelste manier om je blindtyp-vaardigheden te perfectioneren.
-		</p>
-	</div>
-
 	<div class="flex flex-wrap justify-center gap-3">
 		{#each modes as mode}
 			<button
