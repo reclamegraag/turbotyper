@@ -24,27 +24,40 @@
 </script>
 
 <div class="flex min-h-screen flex-col" style="background-color: var(--bg-primary); color: var(--text-primary);">
-	<nav class="flex items-center justify-between px-6 py-6" style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border);">
-		<a href="/" class="font-mono text-xl font-bold tracking-tight" style="color: var(--accent); text-decoration: none;">
-			TurboTyper
-		</a>
-		<div class="flex items-center gap-10">
-			{#each navItems as item}
-				<a
-					href={item.href}
-					class="flex items-center gap-3 text-sm font-medium transition-colors duration-200"
-					style="color: {$page.url.pathname === item.href ? 'var(--accent)' : 'var(--text-secondary)'}; text-decoration: none;"
-				>
-					<i class={item.icon}></i>
-					{item.label}
-				</a>
-			{/each}
-			<div class="h-4 w-px" style="background-color: var(--border);"></div>
-			<XpBar />
+	<nav
+		class="sticky top-0 z-50 w-full border-b backdrop-blur-md"
+		style="background-color: var(--bg-secondary); border-color: var(--border);"
+	>
+		<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+			<a
+				href="/"
+				class="font-mono text-xl font-bold tracking-tight transition-opacity hover:opacity-80"
+				style="color: var(--accent); text-decoration: none;"
+			>
+				TurboTyper
+			</a>
+			<div class="flex items-center gap-8">
+				<div class="hidden items-center gap-8 md:flex">
+					{#each navItems as item}
+						<a
+							href={item.href}
+							class="flex items-center gap-2.5 text-sm font-semibold transition-colors duration-200 hover:text-[var(--accent)]"
+							style="color: {$page.url.pathname === item.href ? 'var(--accent)' : 'var(--text-secondary)'}; text-decoration: none;"
+						>
+							<i class="{item.icon} opacity-80"></i>
+							{item.label}
+						</a>
+					{/each}
+				</div>
+				<div class="hidden h-5 w-px md:block" style="background-color: var(--border);"></div>
+				<XpBar />
+			</div>
 		</div>
 	</nav>
 
-	<main class="flex flex-1 flex-col px-6">
-		{@render children()}
+	<main class="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center px-6 py-8 md:py-16 lg:px-8">
+		<div class="w-full flex flex-col items-center">
+			{@render children()}
+		</div>
 	</main>
 </div>
