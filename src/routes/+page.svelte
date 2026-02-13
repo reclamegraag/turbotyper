@@ -80,33 +80,35 @@
 	}
 </script>
 
-<div class="flex flex-1 flex-col items-center gap-12 px-20 py-12">
+<div class="flex flex-1 flex-col items-center gap-12 py-8">
 	<div class="flex flex-col items-center gap-4 text-center">
-		<h1 class="font-sans text-4xl font-bold tracking-tight" style="color: var(--text-primary);">
+		<h1 class="font-sans text-5xl font-extrabold tracking-tight">
 			Turbo<span style="color: var(--accent);">Typer</span>
 		</h1>
+		<p class="max-w-md text-balance text-lg font-medium opacity-60">
+			De snelste manier om je blindtyp-vaardigheden te perfectioneren.
+		</p>
 	</div>
 
-	<div class="flex gap-4">
+	<div class="flex flex-wrap justify-center gap-3">
 		{#each modes as mode}
 			<button
 				onclick={() => selectMode(mode.id)}
-				class="flex items-center gap-4 rounded-full text-sm font-medium transition-all duration-200"
+				class="flex items-center gap-3 rounded-2xl px-6 py-3.5 text-sm font-bold transition-all duration-300 active:scale-95"
 				style="
 					background-color: {selectedMode === mode.id ? 'var(--accent)' : 'var(--surface)'};
 					color: {selectedMode === mode.id ? 'var(--bg-primary)' : 'var(--text-secondary)'};
 					border: 1px solid {selectedMode === mode.id ? 'var(--accent)' : 'var(--border)'};
-					padding: 10px 20px;
 					cursor: pointer;
 				"
 			>
-				<i class={mode.icon}></i>
+				<i class="{mode.icon} {selectedMode === mode.id ? 'animate-pulse' : ''}"></i>
 				{mode.label}
 			</button>
 		{/each}
 	</div>
 
-	<div class="w-full max-w-3xl flex flex-col gap-10">
+	<div class="w-full max-w-4xl flex flex-col gap-12">
 		<TypingArea text={drillText} onComplete={handleComplete} />
 		{#if sessionResult}
 			<SessionSummary
