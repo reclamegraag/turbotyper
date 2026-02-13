@@ -100,11 +100,9 @@
 	let inputField: HTMLInputElement | undefined = $state();
 </script>
 
-<div class="flex flex-col gap-8">
-	<div class="flex items-center gap-6">
-		<div class="flex-1">
-			<StatsBar wpm={typing.wpm} accuracy={typing.accuracy} {elapsed} onRestart={restart} />
-		</div>
+<div class="flex flex-col items-center gap-10 w-full">
+	<div class="flex flex-col items-center gap-6 w-full max-w-2xl">
+		<StatsBar wpm={typing.wpm} accuracy={typing.accuracy} {elapsed} onRestart={restart} />
 		<ComboIndicator combo={combo.current} multiplier={combo.multiplier} />
 	</div>
 
@@ -112,8 +110,8 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		bind:this={inputEl}
-		class="relative cursor-text rounded-xl font-mono text-xl leading-relaxed outline-none focus:ring-2"
-		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent); padding: 13px 16px;"
+		class="relative cursor-text rounded-3xl font-mono text-2xl leading-relaxed outline-none transition-all duration-500 focus-within:ring-4"
+		style="background-color: var(--surface); border: 1px solid var(--border); --tw-ring-color: var(--accent); padding: 3rem 4rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);"
 	>
 		<!-- Hidden input for keyboard capture - positioned over the div -->
 		<input
@@ -124,19 +122,19 @@
 			onkeydown={handleKeydown}
 			style="position: absolute; inset: 0; opacity: 0; cursor: inherit; font-size: inherit;"
 		/>
-		<div class="flex flex-wrap">
+		<div class="flex flex-wrap justify-center text-center">
 			{#each text.split('') as char, i}
 				{@const status = getCharStatus(typing.text, typing.input, i)}
 				<span
-					class="relative"
+					class="relative inline-block"
 					class:correct={status === 'correct'}
 					class:incorrect={status === 'incorrect'}
 					class:cursor-char={status === 'cursor'}
 					style="
 						color: {status === 'correct' ? 'var(--success)' : status === 'incorrect' ? 'var(--error)' : status === 'cursor' ? 'var(--text-primary)' : 'var(--text-muted)'};
-						{status === 'incorrect' ? 'background-color: rgba(231, 76, 60, 0.15); border-radius: 2px;' : ''}
+						{status === 'incorrect' ? 'background-color: rgba(231, 76, 60, 0.15); border-radius: 4px;' : ''}
 					"
-				>{#if status === 'cursor'}<span class="animate-blink absolute -left-px bottom-0 top-0 w-0.5" style="background-color: var(--accent);"></span>{/if}{char === ' ' ? '\u00A0' : char}</span>
+				>{#if status === 'cursor'}<span class="animate-blink absolute -left-0.5 bottom-1 top-1 w-1 rounded-full shadow-[0_0_10px_var(--accent)]" style="background-color: var(--accent);"></span>{/if}{char === ' ' ? '\u00A0' : char}</span>
 			{/each}
 		</div>
 	</div>
