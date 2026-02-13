@@ -27,8 +27,15 @@
 	);
 </script>
 
-<div class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-20 py-12">
-	<h1 class="text-3xl font-bold" style="color: var(--text-primary);">Dashboard</h1>
+<div class="mx-auto flex w-full max-w-5xl flex-col gap-16 py-8">
+	<div class="flex flex-col items-center gap-6 text-center">
+		<h1 class="text-6xl font-black tracking-tighter">Dashboard</h1>
+		<div class="flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.4em] opacity-30">
+			<span>Level {$gamification.level}</span>
+			<span class="h-4 w-px bg-[var(--border)]"></span>
+			<span>{$gamification.streak} {nl ? 'Dagen' : 'Day'} Streak</span>
+		</div>
+	</div>
 
 	<StatsOverview
 		totalSessions={$stats.totalSessions}
@@ -40,40 +47,46 @@
 		level={$gamification.level}
 	/>
 
-	<div class="grid grid-cols-2 gap-6">
-		<section class="flex flex-col gap-3">
-			<h2 class="text-lg font-semibold" style="color: var(--text-primary);">
+	<div class="grid w-full grid-cols-1 gap-12 lg:grid-cols-2">
+		<section class="flex flex-col items-center gap-6">
+			<h2 class="text-center text-xs font-black uppercase tracking-[0.2em] opacity-40">
 				{nl ? 'WPM over tijd' : 'WPM over time'}
 			</h2>
-			<div class="rounded-xl p-4" style="background-color: var(--surface); border: 1px solid var(--border);">
+			<div class="w-full rounded-3xl p-6 shadow-xl" style="background-color: var(--surface); border: 1px solid var(--border);">
 				<LineChart data={wpmData} color="var(--accent)" unit=" WPM" emptyMessage={nl ? 'Nog geen data' : 'No data yet'} />
 			</div>
 		</section>
 
-		<section class="flex flex-col gap-3">
-			<h2 class="text-lg font-semibold" style="color: var(--text-primary);">
+		<section class="flex flex-col items-center gap-6">
+			<h2 class="text-center text-xs font-black uppercase tracking-[0.2em] opacity-40">
 				{nl ? 'Accuracy over tijd' : 'Accuracy over time'}
 			</h2>
-			<div class="rounded-xl p-4" style="background-color: var(--surface); border: 1px solid var(--border);">
+			<div class="w-full rounded-3xl p-6 shadow-xl" style="background-color: var(--surface); border: 1px solid var(--border);">
 				<LineChart data={accData} color="var(--success)" maxValue={100} unit="%" emptyMessage={nl ? 'Nog geen data' : 'No data yet'} />
 			</div>
 		</section>
 	</div>
 
-	<section class="flex flex-col gap-3">
-		<h2 class="text-lg font-semibold" style="color: var(--text-primary);">
+	<section class="flex w-full flex-col items-center gap-6">
+		<h2 class="text-center text-xs font-black uppercase tracking-[0.2em] opacity-40">
 			{nl ? 'Toetsen heatmap' : 'Key Heatmap'}
 		</h2>
-		<KeyHeatmap weakKeys={$progress.weakKeys} strongKeys={$progress.strongKeys} />
+		<div class="w-full rounded-3xl p-8 shadow-xl" style="background-color: var(--surface); border: 1px solid var(--border);">
+			<KeyHeatmap weakKeys={$progress.weakKeys} strongKeys={$progress.strongKeys} />
+		</div>
 	</section>
 
-	<div class="grid grid-cols-2 gap-6">
-		<SessionHistory sessions={$stats.sessionsHistory} />
-		<Suggestions
-			weakKeys={$progress.weakKeys}
-			averageWpm={$stats.averageWpm}
-			averageAccuracy={$stats.averageAccuracy}
-		/>
+	<div class="grid w-full grid-cols-1 gap-12 lg:grid-cols-2">
+		<section class="flex flex-col items-center">
+			<SessionHistory sessions={$stats.sessionsHistory} />
+		</section>
+		<section class="flex flex-col items-center">
+			<Suggestions
+				weakKeys={$progress.weakKeys}
+				averageWpm={$stats.averageWpm}
+				averageAccuracy={$stats.averageAccuracy}
+			/>
+		</section>
 	</div>
 
 	<BadgeShowcase />
