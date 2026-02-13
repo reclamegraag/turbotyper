@@ -51,8 +51,8 @@
 	})());
 </script>
 
-<div class="flex flex-col gap-3">
-	<h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+<div class="flex w-full flex-col gap-6">
+	<h3 class="text-center text-xs font-black uppercase tracking-[0.2em] opacity-40">
 		{$settings.language === 'nl' ? 'Verbeterpunten' : 'Suggestions'}
 	</h3>
 

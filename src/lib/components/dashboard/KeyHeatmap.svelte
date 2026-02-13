@@ -42,7 +42,7 @@
 	{/if}
 
 	{#each keyboardRows as row, i}
-		<div class="row" style="margin-left: {rowOffsets[i] || 0}px">
+		<div class="row">
 			{#each row as key}
 				<div
 					class="key"
@@ -60,19 +60,22 @@
 	.keyboard {
 		display: flex;
 		flex-direction: column;
-		gap: 4px;
-		align-items: flex-start;
+		gap: 6px;
+		align-items: center;
 		position: relative;
-		padding: 16px;
+		padding: 32px;
 		background: var(--surface);
-		border-radius: 12px;
+		border-radius: 24px;
 		border: 1px solid var(--border);
-		width: fit-content;
+		width: 100%;
+		max-width: 900px;
 		margin: 0 auto;
 	}
 	.row {
 		display: flex;
-		gap: 4px;
+		gap: 6px;
+		justify-content: center;
+		width: 100%;
 	}
 	.key {
 		height: 36px;
