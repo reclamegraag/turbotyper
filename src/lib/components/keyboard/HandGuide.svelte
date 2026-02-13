@@ -28,21 +28,10 @@
 
 <div class="hand-guide-wrapper">
 	<svg viewBox="0 0 190 80" aria-hidden="true">
-		<defs>
-			<filter id="glow">
-				<feGaussianBlur stdDeviation="2" result="blur" />
-				<feMerge>
-					<feMergeNode in="blur" />
-					<feMergeNode in="SourceGraphic" />
-				</feMerge>
-			</filter>
-		</defs>
+		<defs></defs>
 
 		<!-- Left hand -->
 		<g>
-			<!-- Palm -->
-			<rect x="10" y="42" width="60" height="28" rx="8" class="palm" />
-
 			<!-- Fingers -->
 			{#each leftFingers as f}
 				<rect
@@ -67,9 +56,6 @@
 
 		<!-- Right hand -->
 		<g>
-			<!-- Palm -->
-			<rect x="120" y="42" width="60" height="28" rx="8" class="palm" />
-
 			<!-- Fingers -->
 			{#each rightFingers as f}
 				<rect
@@ -106,13 +92,6 @@
 		height: auto;
 	}
 
-	.palm {
-		fill: var(--surface);
-		stroke: var(--border);
-		stroke-width: 0.75;
-		opacity: 0.25;
-	}
-
 	.finger {
 		fill: var(--key-bg);
 		stroke: var(--border);
@@ -125,6 +104,5 @@
 		fill: var(--accent);
 		stroke: var(--accent);
 		opacity: 1;
-		filter: url(#glow);
 	}
 </style>
