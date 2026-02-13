@@ -79,13 +79,13 @@
 </script>
 
 {#if activeLesson !== null}
-	<div class="mx-auto flex w-full max-w-3xl flex-col gap-6 px-20 py-12">
+	<div class="mx-auto flex w-full max-w-4xl flex-col gap-10 py-8">
 		<button
 			onclick={backToList}
-			class="flex items-center gap-2 self-start text-sm font-medium transition-colors duration-200"
-			style="color: var(--text-secondary); cursor: pointer; background: none; border: none;"
+			class="group flex items-center gap-3 self-start text-sm font-bold tracking-tight opacity-50 transition-all hover:opacity-100"
+			style="color: var(--text-primary); cursor: pointer; background: none; border: none;"
 		>
-			<i class="fa-solid fa-arrow-left"></i>
+			<i class="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
 			{$settings.language === 'nl' ? 'Terug naar lessen' : 'Back to lessons'}
 		</button>
 		<TypingArea text={drillText} onComplete={handleComplete} />
