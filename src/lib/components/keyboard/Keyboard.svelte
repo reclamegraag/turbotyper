@@ -28,7 +28,8 @@
 	}
 </script>
 
-<div class="flex flex-col items-center gap-1.5">
+<div class="flex w-full justify-center">
+	<div class="inline-flex flex-col gap-1.5">
 	{#each keyboardRows as row, rowIndex}
 		<div class="flex gap-1" style="padding-left: {rowOffsets[rowIndex]}rem;">
 			{#each row as keyInfo}
@@ -59,4 +60,5 @@
 			{/each}
 		</div>
 	{/each}
+	</div>
 </div>
