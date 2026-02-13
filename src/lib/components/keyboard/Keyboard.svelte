@@ -31,7 +31,7 @@
 <div class="flex w-full justify-center">
 	<div class="inline-flex flex-col gap-1.5">
 	{#each keyboardRows as row, rowIndex}
-		<div class="flex gap-1" style="padding-left: {rowOffsets[rowIndex]}rem;">
+		<div class="flex gap-1 {rowIndex === 4 ? 'justify-center' : ''}" style="padding-left: {rowOffsets[rowIndex]}rem;">
 			{#each row as keyInfo}
 				{@const active = isActive(keyInfo.key)}
 				{@const keyWidth = keyInfo.width ? `${keyInfo.width * 2.5}rem` : '2.5rem'}
